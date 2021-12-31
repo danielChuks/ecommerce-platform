@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
     navbar: {
-        backgroundColor: '#203045',
+        backgroundColor: '#303560',
         // to add an anchor to the nav bar and to access a child use (&)
         '& a': {
             color: '#ffffff',
@@ -18,8 +18,17 @@ const useStyles = makeStyles({
     footer:{
         textAlign : 'center',
         padding : '30px',
-        backgroundColor: '#203045',
-        color: '#ffffff'
+    },
+
+    brand:{
+        fontWeight: 'bold',
+        fontSize :'1.5rem'
+    },
+    grow:{
+        flexGrow: 1,
+    },
+    split:{
+        paddingRight:'15px'
     }
 })
 

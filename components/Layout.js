@@ -1,10 +1,12 @@
 import React from 'react';
 import Head from 'next/head';
+import NextLink from 'next/link';
 import { 
      AppBar,
      Toolbar, 
      Typography, 
-     Container  } from '@material-ui/core';
+     Container ,
+     Link} from '@material-ui/core';
 
 import useStyles from '../utlis/styles';
 
@@ -18,7 +20,24 @@ export default function Layout({children }) {
             </Head>
             <AppBar position='static' className={classes.navbar}>
                 <Toolbar>
-                    <Typography>Pulchr</Typography>
+                    <NextLink href="/" passHref>
+                        <Link><Typography className={classes.brand}> Pulchr </Typography></Link>
+                    </NextLink> 
+                    {/* this div pushes the codes on the navbar to a side  */}
+                <div className={classes.grow}></div>
+                {/* the split class creates space between the login and the cart */}
+                <div className={classes.split}>
+                    <NextLink href="/cart" passHref>
+                        <Link><Typography > Cart </Typography></Link>
+                    </NextLink> 
+                </div>
+
+                <div className={classes.split}>
+                    <NextLink href="/login" passHref>
+                        <Link><Typography> Login </Typography></Link>
+                    </NextLink> 
+                </div>
+
                 </Toolbar>
             </AppBar>
             {/* the children is coming from the Layout which enable us to wrap the content in index.js */}
@@ -26,7 +45,7 @@ export default function Layout({children }) {
                 {children}
             </Container>
             {/* this is the footer of the page */}
-            <footer position='static'  className={classes.footer}> 
+            <footer position='static' className={classes.footer}> 
                 <Typography>
                     {'All rights reserved. Pulchr Creatives'}
                 </Typography>

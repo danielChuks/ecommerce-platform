@@ -3,7 +3,7 @@ import React from 'react'
 import Layout from '../../components/Layout';
 import data from '../../utlis/data';
 import NextLink from 'next/link'
-import { Link, Grid, ListItem, List}  from '@material-ui/core';
+import { Link, Grid, ListItem, List, Typography}  from '@material-ui/core';
 import useStyles from '../../utlis/styles';
 import Image from 'next/image'
 
@@ -39,12 +39,10 @@ export default function ProductsScreen() {
                     </Grid>
                     <Grid item md={3} xs={12}>
                         <List>
-                            <ListItem> Category: {product.category} </ListItem>
-                            <ListItem> Brand:  {product.brand} </ListItem>
-                            <ListItem> Rating: {product.rating} </ListItem>
-                            <ListItem>  Number Review:  {product.numReviews} </ListItem> 
-                            <ListItem>  Count In Stock :  {product.countInStock} </ListItem> 
-                            <ListItem>  Discription :  {product.description} </ListItem> 
+                            <ListItem> <Typography> Category: {product.category} </Typography></ListItem>
+                            <ListItem> <Typography> Brand:  {product.brand} </Typography> </ListItem>
+                            <ListItem> <Typography> Rating: {product.rating} stars ({product.numReviews} reviews)</Typography>  </ListItem>
+                            <ListItem> <Typography>  Description:  {product.description }</Typography> </ListItem> 
                         </List>
                     </Grid>
                 </Grid>

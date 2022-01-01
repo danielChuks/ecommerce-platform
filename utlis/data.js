@@ -34,7 +34,7 @@ const data = {
         rating: 4.5,
         numReviews: 10,
         countInStock: 20,
-        description: 'A popular Gown',
+        description: ' A popular Gown',
       },
       {
         name: 'Spotted brown',
@@ -46,7 +46,7 @@ const data = {
         rating: 4.5,
         numReviews: 10,
         countInStock: 20,
-        description: 'Smart looking pants',
+        description: ' Smart looking pants',
       },
       {
         name: 'Plinted Top',

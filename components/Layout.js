@@ -21,7 +21,7 @@ export default function Layout({children }) {
             <AppBar position='static' className={classes.navbar}>
                 <Toolbar>
                     <NextLink href="/" passHref>
-                        <Link><Typography className={classes.brand}> Pulchr </Typography></Link>
+                        <Link><Typography className={classes.brand}> PCreatives </Typography></Link>
                     </NextLink> 
                     {/* this div pushes the codes on the navbar to a side  */}
                 <div className={classes.grow}></div>

@@ -2,7 +2,7 @@ import { makeStyles } from "@material-ui/core";
 
 const useStyles = makeStyles({
     navbar: {
-        backgroundColor: '#303560',
+        backgroundColor: '#303060',
         // to add an anchor to the nav bar and to access a child use (&)
         '& a': {
             color: '#ffffff',

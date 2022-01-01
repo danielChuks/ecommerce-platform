@@ -29,6 +29,9 @@ const useStyles = makeStyles({
     },
     split:{
         paddingRight:'15px'
+    },
+    cardHeight:{
+        mainHeight: '20px'
     }
 })
 

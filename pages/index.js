@@ -10,8 +10,10 @@ import {
 import Layout from '../components/Layout';
 import data from '../utlis/data';
 import NextLink from 'next/link'
+import useStyles from '../utlis/styles';
 
 export default function Home() {
+  const classes = useStyles();
   return (
     <Layout>
       <div>
@@ -21,8 +23,8 @@ export default function Home() {
             <Grid item md={4} key={product.name}>
               <Card>
               <NextLink href={`/product/${product.slug}`} passHref>
-                <CardActionArea>
-                  <CardMedia
+                <CardActionArea >
+                  <CardMedia className={classes.size}
                     component="img"
                     image={product.image}
                     title={product.name}>
@@ -33,7 +35,7 @@ export default function Home() {
                 </CardActionArea>
               </NextLink>
                 <CardActions>
-                  <Typography>${product.price}</Typography>
+                  <Typography>N{product.price}</Typography>
                   <Button size="small" color="primary">
                     Add to cart
                   </Button>

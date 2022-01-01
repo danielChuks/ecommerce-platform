@@ -17,7 +17,7 @@ const useStyles = makeStyles({
 
     footer:{
         textAlign : 'center',
-        padding : '30px',
+        padding : 30,
     },
 
     brand:{
@@ -32,6 +32,14 @@ const useStyles = makeStyles({
     },
     cardHeight:{
         mainHeight: '20px'
+    },
+
+    section: {
+        marginTop: 10,
+        marginBottom: 10
+    },
+    size:{
+        height: 500
     }
 })
 

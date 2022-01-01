@@ -10,13 +10,13 @@ import {
 
 import useStyles from '../utlis/styles';
 
-export default function Layout({children }) {
+export default function Layout({title, children }) {
     const classes = useStyles();
     return (
         <div>
         {/* this entails the title of the page  */}
             <Head>
-                <title>Pulchr Creatives</title>
+                <title> {title ? ` ${title} - Next PCreatives ` : 'Pulchr Creatives'} </title>
             </Head>
             <AppBar position='static' className={classes.navbar}>
                 <Toolbar>
@@ -45,7 +45,7 @@ export default function Layout({children }) {
                 {children}
             </Container>
             {/* this is the footer of the page */}
-            <footer position='static' className={classes.footer}> 
+            <footer className={classes.footer}> 
                 <Typography>
                     {'All rights reserved. Pulchr Creatives'}
                 </Typography>

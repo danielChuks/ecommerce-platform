@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useContext }from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
+
 import { 
      AppBar,
      Toolbar, 
@@ -9,11 +10,15 @@ import {
      Link,
      createTheme,
      ThemeProvider,
-     CssBaseline} from '@material-ui/core';
+     CssBaseline,
+     Switch} from '@material-ui/core';
 
 import useStyles from '../utlis/styles';
+import { Store } from '../utlis/store';
 
 export default function Layout({title, description, children }) {
+    const { state, dispatch } = useContext(Store)
+    const { darkMode } = state
     //creating a material ui object them to customize our web page
     const theme = createTheme({
         typography: {
@@ -29,13 +34,16 @@ export default function Layout({title, description, children }) {
             }
         },
         palette:{
-            type: "light",
+            type: darkMode ? 'dark' : 'light',
             primary: {
                 main: "#f0c000"
             }
         }
     });
     const classes = useStyles();
+    const darkModeChangeHandler = ()=>{
+        dispatch({type: darkMode })
+    }
     return (
         <div>
         {/* this entails the title of the page  */}
@@ -52,6 +60,8 @@ export default function Layout({title, description, children }) {
                     </NextLink> 
                     {/* this div pushes the codes on the navbar to a side  */}
                 <div className={classes.grow}></div>
+                 {/* creating a button to change lighe state of the app */}
+                 <Switch>checked={darkMode} onChange={darkModeChangeHandler}</Switch>
                 {/* the split class creates space between the login and the cart */}
                 <div className={classes.split}>
                     <NextLink href="/cart" passHref>

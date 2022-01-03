@@ -37,12 +37,15 @@ export default function Layout({title, description, children }) {
             type: darkMode ? 'dark' : 'light',
             primary: {
                 main: "#f0c000"
+            },
+            secondary: {
+                main: "#208080"
             }
         }
     });
     const classes = useStyles();
-    const darkModeChangeHandler = ()=>{
-        dispatch({type: darkMode })
+    const darkModeChangeHandler = () => {
+        dispatch( {type: darkMode })
     }
     return (
         <div>
@@ -61,7 +64,7 @@ export default function Layout({title, description, children }) {
                     {/* this div pushes the codes on the navbar to a side  */}
                 <div className={classes.grow}></div>
                  {/* creating a button to change lighe state of the app */}
-                 <Switch>checked={darkMode} onChange={darkModeChangeHandler}</Switch>
+                 <Switch> checked={darkMode} onChange={darkModeChangeHandler} </Switch>
                 {/* the split class creates space between the login and the cart */}
                 <div className={classes.split}>
                     <NextLink href="/cart" passHref>

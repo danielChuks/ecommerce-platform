@@ -6,18 +6,45 @@ import {
      Toolbar, 
      Typography, 
      Container ,
-     Link} from '@material-ui/core';
+     Link,
+     createTheme,
+     ThemeProvider,
+     CssBaseline} from '@material-ui/core';
 
 import useStyles from '../utlis/styles';
 
-export default function Layout({title, children }) {
+export default function Layout({title, description, children }) {
+    //creating a material ui object them to customize our web page
+    const theme = createTheme({
+        typography: {
+            h1:{
+                fontSize: "1.5rem",
+                fontWeight: 400,
+                margin: '1rem 0'
+            },
+            h2:{
+                fontSize: "1.3rem",
+                fontWeight: 400,
+                margin: '1rem 0'
+            }
+        },
+        palette:{
+            type: "light",
+            primary: {
+                main: "#f0c000"
+            }
+        }
+    });
     const classes = useStyles();
     return (
         <div>
         {/* this entails the title of the page  */}
             <Head>
                 <title> {title ? ` ${title} - Next PCreatives ` : 'Pulchr Creatives'} </title>
+                {description && <meta name="description" content={description}></meta>}
             </Head>
+            <ThemeProvider theme={theme}>
+            <CssBaseline />
             <AppBar position='static' className={classes.navbar}>
                 <Toolbar>
                     <NextLink href="/" passHref>
@@ -28,7 +55,7 @@ export default function Layout({title, children }) {
                 {/* the split class creates space between the login and the cart */}
                 <div className={classes.split}>
                     <NextLink href="/cart" passHref>
-                        <Link><Typography > Cart </Typography></Link>
+                        <Link><Typography> Cart </Typography></Link>
                     </NextLink> 
                 </div>
 
@@ -50,6 +77,7 @@ export default function Layout({title, children }) {
                     {'All rights reserved. Pulchr Creatives'}
                 </Typography>
             </footer>
+            </ThemeProvider>
         </div>
     )
 }

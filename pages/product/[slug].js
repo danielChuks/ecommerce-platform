@@ -3,7 +3,13 @@ import React from 'react'
 import Layout from '../../components/Layout';
 import data from '../../utlis/data';
 import NextLink from 'next/link'
-import { Link, Grid, ListItem, List, Typography, Card, Button}  from '@material-ui/core';
+import { Link, 
+         Grid, 
+         ListItem, 
+         List, 
+         Typography, 
+         Card, 
+         Button}  from '@material-ui/core';
 import useStyles from '../../utlis/styles';
 import Image from 'next/image'
 
@@ -20,7 +26,7 @@ export default function ProductsScreen() {
         return <div> Product Not Found </div>
     }else {
         return (
-            <Layout title={product.name}>
+            <Layout title={product.name} description={product.description}>
                 <div className={classes.section}>
                     <NextLink href="/" passHref>
                         <Link> back to products </Link>
@@ -38,7 +44,8 @@ export default function ProductsScreen() {
                     </Grid>
                     <Grid item md={3} xs={12}>
                         <List>
-                            <ListItem> <Typography component='h1'> Name: {product.name} </Typography></ListItem>
+                        {/* variant="h1" impliment the theme style from layout to the code */}
+                            <ListItem> <Typography component='h1' variant='h1'>{product.name} </Typography></ListItem>
                             <ListItem> <Typography> Category: {product.category} </Typography></ListItem>
                             <ListItem> <Typography> Brand:  {product.brand} </Typography> </ListItem>
                             <ListItem> <Typography> Rating: {product.rating} stars ({product.numReviews} reviews)</Typography>  </ListItem>

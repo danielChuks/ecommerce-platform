@@ -23,7 +23,8 @@ const useStyles = makeStyles({
 
     brand:{
         fontWeight: 'bold',
-        fontSize :'1.5rem'
+        fontSize :'1.5rem',
+        
     },
     grow:{
         flexGrow: 1,
@@ -41,6 +42,9 @@ const useStyles = makeStyles({
     },
     size:{
         height: 500
+    },
+    head: {
+        fontFamily: "serif",
     }
 })
 

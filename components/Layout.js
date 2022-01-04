@@ -22,10 +22,9 @@ export default function Layout({ title, description, children }) {
   const [darkMode, setDarkMode] = useState(false);
 
   useEffect(() => {
-      console.log(".....")
-    console.log(Cookies.get());
-    console.log(".....")
-    let currentMode = Boolean(Cookies.get('darkMode') || false);
+    // Check if browser contains cookie with name 'darkMode'. If it does, check if its value is 'true', if it is, 
+    // set currentMode to true, if not, set currentMode to false.  
+    let currentMode = /^true$/i.test(Cookies.get('darkMode'));
     setDarkMode(currentMode)
   }, [])
 
@@ -61,10 +60,7 @@ export default function Layout({ title, description, children }) {
    * @description
    */
   const darkModeChangeHandler = () => {
-    console.log(Cookies.get());
-    Cookies.remove('darkMode', { path: '' });
     Cookies.set('darkMode', !darkMode);
-    console.log(Cookies.get());
     setDarkMode(!darkMode);
   };
   return (

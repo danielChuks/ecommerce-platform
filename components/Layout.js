@@ -15,7 +15,7 @@ import {
 } from '@material-ui/core';
 
 import useStyles from '../utlis/styles';
-// import Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 //import { Store } from '../utlis/store';
 
 export default function Layout({ title, description, children }) {

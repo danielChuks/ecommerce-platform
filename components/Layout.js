@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect} from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
 
@@ -15,7 +15,7 @@ import {
 } from '@material-ui/core';
 
 import useStyles from '../utlis/styles';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 //import { Store } from '../utlis/store';
 
 export default function Layout({ title, description, children }) {
@@ -27,8 +27,6 @@ export default function Layout({ title, description, children }) {
     let currentMode = /^true$/i.test(Cookies.get('darkMode'));
     setDarkMode(currentMode)
   }, [])
-
-  
 
   //creating a material ui object them to customize our web page
   const theme = createTheme({

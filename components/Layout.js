@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState} from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
 
@@ -15,21 +15,12 @@ import {
 } from '@material-ui/core';
 
 import useStyles from '../utlis/styles';
-import Cookies from 'js-cookie';
+// import Cookies from 'js-cookie';
 //import { Store } from '../utlis/store';
 
 export default function Layout({ title, description, children }) {
-  const [darkMode, setDarkMode] = useState(false);
-
-  useEffect(() => {
-      console.log(".....")
-    console.log(Cookies.get());
-    console.log(".....")
-    let currentMode = Boolean(Cookies.get('darkMode') || false);
-    setDarkMode(currentMode)
-  }, [])
-
-  
+//this state uses useState to initialize the state of the app
+  const [darkMode, setDarkMode] = useState();
 
   //creating a material ui object them to customize our web page
   const theme = createTheme({
@@ -61,10 +52,6 @@ export default function Layout({ title, description, children }) {
    * @description
    */
   const darkModeChangeHandler = () => {
-    console.log(Cookies.get());
-    Cookies.remove('darkMode', { path: '' });
-    Cookies.set('darkMode', !darkMode);
-    console.log(Cookies.get());
     setDarkMode(!darkMode);
   };
   return (

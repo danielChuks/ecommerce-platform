@@ -24,13 +24,15 @@ const useStyles = makeStyles({
     brand:{
         fontWeight: 'bold',
         fontSize :'1.5rem',
+        fontFamily: "serif"
         
     },
     grow:{
         flexGrow: 1,
     },
     split:{
-        paddingRight:'15px'
+        paddingRight:'15px',
+        fontFamily: "serif"
     },
     cardHeight:{
         mainHeight: '20px'

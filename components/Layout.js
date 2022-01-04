@@ -1,4 +1,4 @@
-import React, { useState} from 'react';
+import React, { useState, useEffect} from 'react';
 import Head from 'next/head';
 import NextLink from 'next/link';
 
@@ -19,8 +19,14 @@ import useStyles from '../utlis/styles';
 //import { Store } from '../utlis/store';
 
 export default function Layout({ title, description, children }) {
-//this state uses useState to initialize the state of the app
-  const [darkMode, setDarkMode] = useState();
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    // Check if browser contains cookie with name 'darkMode'. If it does, check if its value is 'true', if it is, 
+    // set currentMode to true, if not, set currentMode to false.  
+    let currentMode = /^true$/i.test(Cookies.get('darkMode'));
+    setDarkMode(currentMode)
+  }, [])
 
   //creating a material ui object them to customize our web page
   const theme = createTheme({
@@ -52,6 +58,7 @@ export default function Layout({ title, description, children }) {
    * @description
    */
   const darkModeChangeHandler = () => {
+    Cookies.set('darkMode', !darkMode);
     setDarkMode(!darkMode);
   };
   return (

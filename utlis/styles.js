@@ -45,6 +45,10 @@ const useStyles = makeStyles({
     },
     head: {
         fontFamily: "serif",
+    },
+    line:{
+        marginTop: "15px",
+        marginRight: "10px"
     }
 })
 

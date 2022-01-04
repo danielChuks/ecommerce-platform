@@ -1,6 +1,6 @@
 import '../styles/globals.css'
 import { useEffect } from 'react';
-import { StoreProvider } from '../utlis/store';
+// import { StoreProvider } from '../utlis/store';
 
 
 function MyApp({ Component, pageProps }) {
@@ -12,10 +12,7 @@ function MyApp({ Component, pageProps }) {
     }
  }, []);
 
-  return (<StoreProvider> 
-            <Component {...pageProps} />
-          </StoreProvider>
-      ); 
+  return (<Component {...pageProps} />); 
 }
 
 export default MyApp
